@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Travel Morocco</title>
+</head>
+
+<body>
+    <script>
+        //This is an alert for when the page loads
+        alert("This is a secure website");
+    </script>
+    <div class="top-bar">
+        <div class="nav-bar">
+            <div id="title">
+                <h1>MOROCCO</h1>
+            </div>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="#">ABOUT</a>
+            </li>
+            <li><a href="#">SIGHTS</a> </li>
+            <li>
+                <a href="#">LOCATION</a>
+            </li>
+            <li>
+                <a href="#">CONTACT</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="main">
+        <h1>Chefchaouen</h1>
+        <p id="h3">The Blue Pearl of Morocco</p>
+        <button id="button">Learn More</button>
+        <p id="content">The first reason my selected audience would come to Chefchaouen is because of the unique
+            aesthetic of the town, with most of its houses painted blue,
+            giving the town an interesting and attractive look. </p>
+    </div>
+    <!--Images-->
+    <div class="explore">
+        <div class="market">
+            <img src="img-zakariaedaoui-unsplash.png" id="image1" alt="Image by zakariae daoui on Unsplash">
+            <div class="description1">
+                <h4>Marketplaces</h4>
+                <p>Instead of lavish malls that a person would normally see in other destination cities,
+                    Chefchaouen boasts its traditional bazaars and street vendors. Most of the merchandise is handmade
+                    which allows tourists an authentic and memorable shopping experience.</p>
+            </div>
+        </div>
+        <div class="food">
+            <img src="img-jaidastewart-unsplash.png" id="image2" alt="Image by Jaida Stewart on Unsplash">
+            <div class="description2">
+                <h4>Food and Drinks</h4>
+                <p> According to the British blog Worldsim Travel,
+                    known for its tasty and various dishes, Morocco was classified second in the 2017 ranking of the
+                    best gourmand's global destinations.
+                    The town offers to its visitors an exceptional culinary experience.</p>
+            </div>
+        </div>
+        <div class="alley">
+            <img src="annie-spratt.jpg" id="image3" alt="Image from pexels">
+            <div class="description3">
+                <h4>Explore Chefchaouen</h4>
+                <p>Located in the mountains, with its narrow alleys and old architecture, the city offers a quiet and
+                    rich cultural and historical experience to visitors.
+                    Tourists can walk through the alleys or view the scenic mountain ranges encircling the town. </p>
+            </div>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <div class="footer">
+        <div class="copyright">
+            <h2>MOROCCO</h2>
+            <p>Copyright © 2023
+                All rights reserved</p>
+        </div>
+        <div class="list">
+            <h6>ABOUT</h6>
+            <h6>SIGHTS</h6>
+            <h6>LOCATIONS</h6>
+            <h6>CONTACT</h6>
+        </div>
+
+        <div class="socials">
+            <h6><img src="Asset 1.png" alt="facebook icon"> Facebook</h6>
+            <h6><img src="Asset 3.png" alt="pinterest icon"> Pinterest</h6>
+            <h6><img src="Asset 2.png" alt="twitter icon"> Twitter</h6>
+        </div>
+
+        <div class="map">
+            <img src="location.jpg" alt="map" width="500px" height="250px">
+        </div>
+    </div>
+    <!--Javascript starts here-->
+    <script>
+
+        //I replaced the text in the HTML (The Blue Pearl of Morocco with the following description)
+        //To achiever this, I gave an id to the description in html and used a query selector for the id. 
+        //I also changed the font color as well.
+        let el = document.querySelector('#h3');
+        el.innerHTML = 'The Blue City of Morocco';
+
+        el.style.color = '#0487D9';
+        el.style.fontFamily = 'Arial';
+
+        let content = document.querySelector('#content');
+
+        //Over here, I used DOM and event listeners to toggle the display when the button is clicked and hide it when the mouse leaves the button.
+        //I had already styled the paragraph in CSS but I hid it using display:none
+        let isOpen = false;
+        function toggleContent() {
+            if (isOpen) {
+                content.style.display = 'none';
+                isOpen = false;
+            } else {
+                content.style.display = 'block';
+                isOpen = true;
+            }
+        }
+
+        let title = document.querySelector('#button');
+        title.addEventListener('click', toggleContent);
+
+        document.addEventListener("mouseout", function () {
+            document.getElementById("content").style.display = "none";
+
+        });
+
+
+        //I used DOM and even listeners again over here to replace the images that were in the HTML.
+        //I gave an id to each image and used the querSelector method to replace the images.
+        //The 'mouseover' and 'mouseout' are the events. 
+        let image1 = document.querySelector("#image1"); // Get the image element by its ID
+        image1.addEventListener("mouseover", function () {
+            image1.src = "pexels-market.jpg";
+            image1.alt = "Image 1";
+        });
+
+        image1.addEventListener("mouseout", function () {
+            image1.src = "img-zakariaedaoui-unsplash.png";
+        });
+
+
+        let image2 = document.querySelector("#image2"); // Get the image element by its ID
+        image2.addEventListener("mouseover", function () {
+            image2.src = "annie-spratt-unsplash.jpg";
+            image2.alt = "Image 2";
+        });
+
+        image2.addEventListener("mouseout", function () {
+            image2.src = "img-jaidastewart-unsplash.png";
+        });
+
+        let image3 = document.querySelector("#image3"); // Get the image element by its ID
+        image3.addEventListener("mouseover", function () {
+            image3.src = "alley-pexels.jpg";
+            image3.alt = "Image 3";
+        });
+
+        image3.addEventListener("mouseout", function () {
+            image3.src = "annie-spratt.jpg";
+        });
+
+
+    </script>
+</body>
+
+</html>
